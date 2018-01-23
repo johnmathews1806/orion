@@ -57,13 +57,13 @@ public class UserInterface {
 		CommandLineReadable cr = new CommandLineNewReader();
 		
 		//fh.serializeObject(new Date());
-		fh.serializeObject(cr);
-		fh.serializeObject(cr);
+		//fh.serializeObject(cr);
+		//fh.serializeObject(cr);
 		
 		//**Authentication**
 		Authenticate auth = new Authenticate();
-		auth.verify();
-		//auth.consent(cr);
+		//auth.verify();
+		auth.consent(cr);
 		
 		
 		UserInterface ui = new UserInterface();
@@ -100,11 +100,29 @@ public class UserInterface {
 						zip.zipFile();
 						break;
 					case 5:
-						fm.reverseNumbersInFile();
+						fm.processFile(fm.REVERSE_NUMBER_IN_FILE);
 						break;
 					case 6:
-						SOP("Select 6");
+						fm.processFile(fm.MOST_REPEATED_WORD_IN_FILE);
 						break;
+					case 7:
+						fm.createPath(fm.CREATE_DIRECTORY);
+						break;
+					case 8:
+						fm.createPath(fm.CREATE_FILE);
+						break;
+					case 9:
+						fm.showFileDetails();
+						break;
+					case 10:						
+						fm.splitVeryLargeFile();						
+						break;
+					case 11:						
+						fm.showDirectoryDetails();						
+						break;
+					case 12:						
+						fm.walkDirectoryTree();						
+						break;	
 					case 0:		
 						SOP("Exiting...");
 						continue_menu=false;					

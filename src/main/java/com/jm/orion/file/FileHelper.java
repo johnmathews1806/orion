@@ -110,6 +110,18 @@ public class FileHelper {
 		return list;
 	}
 	
+	public List<String> readStringToList(String fileName) throws IOException{
+		List<String> list = new ArrayList<String>();				
+		Scanner sc = new Scanner(new File(fileName));//.useDelimiter(" ");		
+		String value;
+		while(sc.hasNext()){
+			value = sc.next();
+			//SOP("FileHelper: "+value);
+			list.add(value);
+		}		
+		return list;
+	}
+	
 	public void storeCredentials(String username, String password){
 		//PrintWriter os = null;
 		DataOutputStream os  = null;
@@ -170,7 +182,7 @@ public class FileHelper {
 	
 	public void serializeObject(Object obj){
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/object.tmp"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:/WORK/object.tmp"));
 			oos.writeObject(obj);
 			oos.close();
 		} catch (FileNotFoundException e3) {
